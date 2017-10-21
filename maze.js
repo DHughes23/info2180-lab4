@@ -9,9 +9,12 @@ function chaCol() {
 	for (let q=0; q<5; q++){
 		waLink[q].addEventListener("mouseover", changeBounds)	
 	}
-	document.getElementById("end").addEventListener("mouseover", end);
+	
+	
 	document.getElementById("start").addEventListener("click", begin);
-	document.getElementById("start").onclick= resetBounds;
+	document.getElementById("start").onclick = resetBounds;
+	document.getElementById("end").addEventListener("mouseover", end);
+	document.getElementById("maze").onmouseout=changeBounds;
 }
 
 function changeBounds(){
