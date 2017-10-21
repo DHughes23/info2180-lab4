@@ -4,9 +4,6 @@ window.onload = chaCol;
 var startGame = false;
 var lostGame = false;
 
-//document.getElementById("start").addEventListener("click", begin);
-//document.getElementById("end").addEventListener("mouseover", end);
-
 function chaCol() {
 	var waLink = document.querySelectorAll(".boundary");
 	for (let q=0; q<5; q++){
@@ -14,16 +11,22 @@ function chaCol() {
 	}
 	document.getElementById("end").addEventListener("mouseover", end);
 	document.getElementById("start").addEventListener("click", begin);
+	document.getElementById("start").onclick= resetBounds;
 }
 
 function changeBounds(){
-	if (startGame==true){
-		var num = document.querySelectorAll(".boundary");
-		for (let i=0; i<5; i++){
-			num[i].classList.add("youlose");
-		}
+	var num = document.querySelectorAll(".boundary");
+	for (let i=0; i<5; i++){
+		num[i].classList.add("youlose");
 	}	
 	lostGame= true;
+}
+
+function resetBounds(){
+	var them = document.querySelectorAll(".boundary");
+	for (let i=0; i<5; i++){
+		them[i].classList.remove("youlose");
+	}
 }
 
 function begin(){
@@ -31,14 +34,6 @@ function begin(){
     startGame = true;
     lostGame = false;
     setStatus("The Race is afoot!");
-}
-
-function resetBounds(){
-	var num = document.querySelectorAll(".boundary");
-	for (let i=0; i<5; i++){
-		num[i].className = "boundary";
-	}
-	console.log(num);
 }	
 
 function end(){
